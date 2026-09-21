@@ -2,6 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>
+/* PUBLIC switch.
+   false: nomoslab.org shows this blank placeholder and the explainer is only reachable at its hidden path.
+   true:  nomoslab.org sends visitors straight to the explainer.
+   Change the word below, commit, push; GitHub Pages redeploys in about a minute. */
+var PUBLIC = false;
+
+var HIDDEN_PATH = "87be561b6b78ddf6/";
+if (PUBLIC) { location.replace(HIDDEN_PATH); }
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>nomoslab</title>

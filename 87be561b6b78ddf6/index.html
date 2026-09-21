@@ -311,7 +311,7 @@
 
 <footer id="references">
   <p>Named on this page: <a href="https://www.x402.org/">x402</a>, the payment protocol the data comes from; <a href="https://docs.cdp.coinbase.com/x402/bazaar">x402 Bazaar</a>, its marketplace; <a href="https://www.freehaven.net/anonbib/cache/sybil.pdf">The Sybil Attack</a> (Douceur, 2002); <a href="https://www.usenix.org/conference/nsdi11/bazaar-strengthening-user-reputations-online-marketplaces">Bazaar: Strengthening User Reputations in Online Marketplaces</a> (Post, Shah and Mislove, 2011).</p>
-  <p>The paper is under review. Its link at the <a href="#paper">top of this page</a> will point to it once it is public.</p>
+  <p id="paper-note">The paper is under review. Its link at the <a href="#paper">top of this page</a> will point to it once it is public.</p>
 </footer>
 </div>
 
@@ -319,8 +319,16 @@
 </div>
 
 <script>
+/* Paper link. Set this to the paper's URL (arXiv or venue page) and every "Paper" link on the page,
+   including "Paper under review" at the top, will point there and the "under review" wording will change. */
+var PAPER_URL = "";
 (function(){
 "use strict";
+if (PAPER_URL) {
+  Array.prototype.slice.call(document.querySelectorAll('a[href="#paper"]')).forEach(function(a){ a.setAttribute("href", PAPER_URL); });
+  var m = document.querySelector(".hero .meta a"); if (m) m.textContent = "Read the paper";
+  var f = document.getElementById("paper-note"); if (f) f.textContent = "";
+}
 var NS="http://www.w3.org/2000/svg";
 var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 var svg=document.getElementById("svg"), stageEl=document.getElementById("stage");
